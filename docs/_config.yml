@@ -18,11 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: SDC Engineering Journal, Bill Roth
+title: Blue Ocean Engineering Journal, Bill Roth
 email: minongcopper@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A peripatetic journey through SDC, from one headscratch to the next keystroke.
-baseurl: "/blueberry-journal" # the subpath of your site, e.g. /blog
+  A peripatetic journey through Blue Ocean, from one headscratch to the next keystroke.
+baseurl: "/blue-ocean-journal" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  minongcopper
 
