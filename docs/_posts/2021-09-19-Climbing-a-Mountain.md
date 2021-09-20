@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Climbing a Mountain"
+date: 2021-09-19 22:00:00 -0400
+categories: blueOcean
+---
+### PG-PROMISE to PG
+The week started off with some general housekeeping, taking the Leaderboard routes that I had already created in pg-promise and moving them to pg. I had expected the syntax to be similar, given that pg-promise derived from pg, but that was not the case. The work that had already been done with pg was utilizing ES6 template literals heavily, whereas pg-promise doesn't support ES6 template literals. But getting the style consistent, and reconnecting the leaderboard with the new routes was a good exercise.
+
+### Infinite Scroll Infinite Looping
+In the mild chaos between demoing the application and working on routes, it became the case that some of my leaderboard routes broke but were pushed to the development branch that way. The data being returned on the broken routes was HTML from the root page, and so my Leaderboard functions thought that there was real data coming back even though it was useless. This resulted in an infinite loop for anybody working from the development branch. It was a good lesson to learn: verify the right data is coming back from the server.
+
+### Postgres Ordinality
+The end of the week was frought with lions, and tigers, and bears. The first project that I started, but haven't finished yet, is creating a route that returns a rank for a single user. I feel my mind is wrapped around the concept sufficiently. I will, on the db size, create the same "ORDER BY" results as the leaderboard. Postgres has a feature that should help here. Once results are ordered, an "ordinality" field can be temporarily appended. Then I'll select by username and get the ordinality. The challenge still, is that in order to use ordinality, it seems that the original query needs to be in the form of a Postgres function. I haven't yet gotten to the bottom of making that work. [An Article on Postgres Ordinality](https://paquier.xyz/postgresql-2/postgres-9-4-feature-highlight-with-ordinality/)
+
+### Async Tests
+The bitter finish to the week was hours upon hours spent on trying to make async tests work. The first many hours were spent trying to figure out three things, in seemingly scrambled order, #1) How to get Props in, #2) How to change State, #3) How to mock an API. Eventually I realized that a huge hangup was that our repo was heavily using React Router. I dutifully got my router wrappings into the context of the Enzyme mounts, so that the component I was focusing on could be the root component (and I could therefore modify props and state). [here's a great way to wrap them, not too dissimilar from the npm package react-router-enzyme-context](https://stackoverflow.com/questions/50025717/jest-enzyme-invariant-violation-you-should-not-use-route-or-withrouter-ou#utility-function-to-wrap-mount-with-context) [react-router-enzyme-context](https://www.npmjs.com/package/react-router-enzyme-context) Yet even with those attempts to appease React Router, I still was getting error messages about not using <Link> within <Route>. Turns out that three lines on LeaderboardListElement were actually the ones giving me 98% of the problems, those being the links for the enduser to navigate from the Leaderboard to individual portfolio pages. I wrapped those links in routes, and they're not causing trouble for now. That is, until the portfolio pages are ready to link to properly.
+	
+Overall, through many errors and much consternation, I started to feel the rhythm of Jest, MSW, Enzyme, Sinon, and Testing-Library all working together. Was able to finally kick out about 7 tests, and it's starting to feel more natural. Once thing I'm still not sure of though is why my coverage numbers haven't moved an inch since I started. Leaderboard is stubbornly planted at about 50% no matter what test I write. There's more to learn, indeed!
