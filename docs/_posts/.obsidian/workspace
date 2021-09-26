@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "2021-09-19-Climbing-a-Mountain.md",
+            "file": "2021-09-25-Wrapping-Up.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2021-09-19-Climbing-a-Mountain.md",
+                "file": "2021-09-25-Wrapping-Up.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "771220c45d58025a",
   "lastOpenFiles": [
+    "2021-09-19-Climbing-a-Mountain 1.md",
     "2021-09-19-Climbing-a-Mountain.md",
     "2021-09-13-Getting-Hooked.md",
     "2021-09-13-Getting-Hooked 1.md",
@@ -96,7 +97,6 @@
     "2021-08-20-Unswarmed.md",
     "2021-08-15-Lots-Docks.md",
     "2021-08-15-Lots-Docks 1.md",
-    "2021-08-07-Gettin-Faster 1.md",
-    "2021-08-07-Gettin-Faster.md"
+    "2021-08-07-Gettin-Faster 1.md"
   ]
 }
